@@ -1,15 +1,89 @@
-body {
-    background-color: #eee;
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
 }
 
-button {
-    margin-top: 15px;
+ul{
+	list-style-type:none;
 }
 
-.message {
-    color: green;
+form li{
+	margin-bottom:5px;
 }
 
-.error {
-    color: red;
+li input{
+	float: right;
+}
+
+th{
+	text-align:left;
+	width: 250px;
+}
+
+form button{
+	width:150px;
+}
+
+#login_form{
+	width: 300px;
+}
+
+#fileToUpload{
+	float:left;
+}
+
+#upload_form{
+	width:380px;
+}
+
+#path_input{
+	width:300px;
+}
+
+#image_page_giraf{
+	width:20%;
+	height:20%;	
+}
+#image_page_vildsvin{
+	width:20%;
+	height:20%;	
+}
+
+#image_page_aber{
+	width:20%;
+	height:20%;	
+}
+
+#image_page_bavian{
+	width:20%;
+	height:20%;	
+}
+
+#upload_button{
+	float:left;
+}
+
+#users_button{
+	float:left;
+}
+
+#login_button{
+	float:left;
+}
+
+#images_button{
+	float:left;	
+}
+
+#add_user{
+	float:left;
+	width:310px;
+}
+
+#add_user_button{
+	float:left;
 }

@@ -2,19 +2,20 @@
 namespace App\Controller;
 use App\Model\LoginModel;
 
-class LoginController{
-	private $loginModel = null;
-	
-	public function __construct(LoginModel $loginModel){
-		$this->loginModel = $loginModel;
+class LoginController{	
+	public function __construct(){
 	}
 	
 	public function Login(){
-		$this->loginModel->setLoggedIn(true);
-		$this->showLogin();
+		$this->ShowLogin();
 	}
 	
-	public function showLogin(){
+	public function Logout(){
+		$_SESSION["loggedIn"] = false;
+		 header ('Location: /login');
+	}
+	
+	public function ShowLogin(){
 		require VIEW_DIR . '/pages/login.php';
 	}
 }?>

@@ -1,27 +1,39 @@
 <?php 
-$title = 'Login';
-require VIEW_DIR . '/header.php'; 
-
-	if(isset($_POST["loginName"]) && isset($_POST["loginPassword"])){
-		$result = $connection->query('SELECT username, password FROM users');
-		$result->setFetchMode(PDO::FETCH_ASSOC);
-		while($row = $result->fetch()){
-			if($row['username'] == $_POST["loginName"] && $row['password'] == $_POST["loginPassword"]){
-				$_SESSION["loggedIn"] = true;
-			}
-		}
-	}
+	$title = 'Login';
+	require VIEW_DIR . '/header.php'; 
 ?>
 
 <h1> Login </h1>
 	<!-- Login form that send the user to the images page-->
-	<form id="login_form" method="post" <?php if(isset($_SESSION['loggedIn']) &&$_SESSION["loggedIn"] == true){ ?> action="/images"><?php } else { ?> action="/"> <?php } ?>
+	<form id="login_form">
     <ul>
-		<li><label>Username:<input type="text" name="loginName"/></label></li>
-       	<li><label>Password:<input type="password" name="loginPassword"/></label></li>
-        <li><button>Login</button></li>
+		<li><label>Username:<input type="text" id="loginName"/></label></li>
+       	<li><label>Password:<input type="password" id="loginPassword"/></label></li>
+        <li><button type="button" onClick="javascript:Validate()">Login</button></li>
     </ul>	
     </form>
+    
+    <script>
+		function Validate(){
+			var name = document.getElementById("loginName").value;
+			var pw = document.getElementById("loginPassword").value;
+			
+			var request = new XMLHttpRequest();
+			request.open("POST", "/validate", true);
+			request.setRequestHeader("Content-Type", "application:json;charset=UTF-8");
+			request.send(JSON.stringify({"username":name, "password":pw}));	
+			
+			request.onreadystatechange = function(){
+				if(request.readyState == 4 && request.status == 200){
+					//var response = JSON.parse(request.responseText);
+					var response = JSON.parse('{"value":true}');
+					if(response.value){
+						location.replace("/login");
+					}
+				}
+			}
+		}
+	</script>
  
 <?php
 	require VIEW_DIR . '/footer.php'; 
