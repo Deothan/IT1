@@ -25,8 +25,7 @@
 			
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
-					var response = JSON.parse(request.responseText);
-					if(response.value){
+					if(JSON.parse(request.responseText).value){
 						location.replace("/login");
 					}
 				}
