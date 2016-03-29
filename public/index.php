@@ -42,6 +42,7 @@ $container = new Container();
 $router = new Router();
 $router->addRoute('GET', '/', ['App\\Controller\\LoginController', 'Login']);
 $router->addRoute('GET', '/login', ['App\\Controller\\LoginController', 'Login']);
+$router->addRoute('GET', '/images', ['App\\Controller\\ImageController', 'ShowImages']);
 
 $router->addRoute('POST', '/login', ['App\\Controller\\LoginController', 'Login']);
 $router->addRoute('POST', '/logout', ['App\\Controller\\LoginController', 'Logout']);

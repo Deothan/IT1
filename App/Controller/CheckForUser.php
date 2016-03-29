@@ -7,10 +7,12 @@
 	try { $connection = new PDO('mysql:host='.$dbhost.';dbname=' . $dbName, $dbuser, $dbpw); } 
 	catch ( PDOException $e) {die(); }
 
-	$result = $connection->query('SELECT username, password FROM users WHERE username="'.$name.'" && password ="'.$pw.'";');
+	$result = $connection->query('SELECT id FROM users WHERE username="'.$name.'" && password ="'.$pw.'";');
 	$result->setFetchMode(PDO::FETCH_ASSOC);
-	if(!empty($result->fetch())){
-		echo json_encode(array('value' => true));
+	$row = $result->fetch();
+	if(!empty($row)){
 		$_SESSION["loggedIn"] = true;
+		$_SESSION["userid"] = $row['id'];
+		echo json_encode(array('value' => true));
 	}
 ?>

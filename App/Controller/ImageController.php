@@ -14,7 +14,8 @@ class ImageController{
 		$input = file_get_contents('php://input');
 		$data = json_decode($input, true);
 		
-		$file_content = file_get_contents($data["path"]);
+		$file = file_get_contents($data["path"]);
+		$name = $data["name"];
 		
 		require CONTROLLER_DIR . '/UploadImage.php';
 	}

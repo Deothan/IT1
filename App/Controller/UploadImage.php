@@ -7,9 +7,11 @@
 	try { $connection = new PDO('mysql:host='.$dbhost.';dbname=' . $dbName, $dbuser, $dbpw); } 
 	catch ( PDOException $e) {die(); }
 
-	$result = $connection->query('Insert into images (name, picture, user) values ');
-	$result->setFetchMode(PDO::FETCH_ASSOC);
-	if(!empty($result->fetch())){
-		echo json_encode(array('value' => true));
-	}
+	$query = $connection->prepare("INSERT INTO images (name, file, user) values (:name, :file :user)");
+	$query->bindParam(':name', $name);
+	$query->bindParam(':file', $file);
+	$query->bindParam(':user', $_SESSION["userid"]);
+	$query->execute();
+	
+	echo json_encode(array('value' => true));
 ?>
