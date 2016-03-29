@@ -12,7 +12,7 @@
         <li><button type="button" onClick="javascript:Validate()">Login</button></li>
     </ul>	
     </form>
-
+	<p id="loginText"></p>
     <script>
 		function Validate(){
 			var name = document.getElementById("loginName").value;
@@ -27,6 +27,9 @@
 				if(request.readyState == 4 && request.status == 200){
 					if(JSON.parse(request.responseText).value){
 						location.replace("/login");
+					}
+					else{
+							document.getElementById("loginText").innerHTML = "Incorrect password";
 					}
 				}
 			}

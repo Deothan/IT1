@@ -7,8 +7,6 @@
 	$dbhost = 'localhost';
 	$dbName = 'imagedb';
 	
-	$found = "failure";
-	
 	try { $connection = new PDO('mysql:host='.$dbhost.';dbname=' . $dbName, $dbuser, $dbpw); } 
 	catch ( PDOException $e) {die(); }
 	

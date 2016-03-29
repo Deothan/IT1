@@ -18,18 +18,19 @@
 			
 			var request = new XMLHttpRequest();
 			request.open("POST", "/upload", true);
-			request.setRequestHeader("Content-Type", "application:json;charset=UTF-8");
+			request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			request.send(JSON.stringify({"path":path, "name":name}));	
 			
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
-					//var response = JSON.parse(request.responseText);
-					var response = JSON.parse('{"value":true}');
-					if(response.value){
-						//location.replace("/images");
+					if(JSON.parse(request.responseText).value){
+						location.replace("/login");
+					}
+					else{
+							document.getElementById("output").innerHTML = "Incorrect password";
 					}
 				}
-			}	
+			}
 		}
 	</script>
     

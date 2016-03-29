@@ -1,6 +1,5 @@
 <?php
 namespace App\Controller;
-use App\Model\LoginModel;
 
 class LoginController{	
 	public function __construct(){
@@ -11,8 +10,8 @@ class LoginController{
 	}
 	
 	public function Logout(){
-		$_SESSION["loggedIn"] = false;
-		 header ('Location: /login');
+		session_destroy();
+		header('Location: /login');
 	}
 	
 	public function ShowLogin(){

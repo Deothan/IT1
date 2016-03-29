@@ -15,4 +15,7 @@
 		$_SESSION["userid"] = $row['id'];
 		echo json_encode(array('value' => true));
 	}
+	else{
+		echo json_encode(array('value' => false));
+	}
 ?>
