@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link href="../public/assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
 <title><?php if (isset($title)) { echo $title; } ?></title>
 </head>
 <body>

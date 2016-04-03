@@ -22,8 +22,8 @@
 
     <br><table>
     	<tr>
-    		<th>Id:</th>
-            <th>username:</th>
+    		<th>ID:</th>
+            <th>Username:</th>
         </tr>
         <tr>
             <?php
@@ -31,7 +31,12 @@
                 $result->setFetchMode(PDO::FETCH_ASSOC);
                 while($row = $result->fetch()){ ?>
                     <th> <?php echo $row['id' ]?> </th>
-                    <th> <?php echo $row['username'] ?> </th> 
+                    <th> <?php echo $row['username'] ?> </th>
+					<th><?php if($row['id'] == $_SESSION['userid']){?>
+						<form id="edit_user_button" method="post" action="/openEditUser">
+							<button>Edit</button>
+						</form>
+					<?php } ?></a></th>
        	</tr> <?php } ?>		
     </table>
     

@@ -1,9 +1,11 @@
 <?php
 namespace App\Controller;
-use App\Model\ImageModel;
 
 class ImageController{
+	private $dbcontroller;
+
 	public function __construct(){
+		$this->dbcontroller = new DatabaseController();
 	}
 	
 	public function ShowImages(){
@@ -11,16 +13,20 @@ class ImageController{
 	}
 	
 	public function UploadImage(){
-		$input = file_get_contents('php://input');
-		$data = json_decode($input, true);
-		
-		$file = file_get_contents($data["path"]);
-		$name = $data["name"];
-		
-		require CONTROLLER_DIR . '/UploadImage.php';
+		$this->dbcontroller->UploadImage();
+		return $this->ShowImages();
 	}
 	
 	public function ShowUpload(){
 		require VIEW_DIR . '/pages/upload.php';
+	}
+	
+	public function GetImages(){
+		return $result = $this->dbcontroller->GetAllImages();
+	}
+
+	public function DeleteImage(){
+		$this->dbcontroller->DeleteImage();
+		return $this->ShowImages();
 	}
 }?>

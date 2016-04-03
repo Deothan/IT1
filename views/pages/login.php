@@ -2,17 +2,16 @@
 	$title = 'Login';
 	require VIEW_DIR . '/header.php'; 
 ?>
-
-<h1> Login </h1>
 	<!-- Login form that send the user to the images page-->
-	<form id="login_form">
-    <ul>
-		<li><label>Username:<input type="text" id="loginName"/></label></li>
-       	<li><label>Password:<input type="password" id="loginPassword"/></label></li>
-        <li><button type="button" onClick="javascript:Validate()">Login</button></li>
-    </ul>	
-    </form>
-	<p id="loginText"></p>
+	<div id="login_div">
+		<h1>Login</h1>
+		<form id="login_form">
+			<label>Username:<input type="text" id="loginName"/></label>
+			<label>Password:<input type="password" id="loginPassword"/></label>
+			<button type="button" onClick="javascript:Validate()">Login</button>
+			<p id="loginText" class="login_text"></p>
+		</form>
+	</div>
     <script>
 		function Validate(){
 			var name = document.getElementById("loginName").value;
