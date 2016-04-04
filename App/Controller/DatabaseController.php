@@ -91,7 +91,7 @@ class DatabaseController
         $stmt = $this->conn->prepare('DELETE FROM images WHERE id = :id');
         $stmt->bindParam(':id', $_POST['imageid'], PDO::PARAM_STR);
         $stmt->execute();
-        
+
         //TODO unlink of image file.. Image file still exists
     }
 }

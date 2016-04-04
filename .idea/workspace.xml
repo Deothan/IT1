@@ -55,22 +55,22 @@
       <file leaf-file-name="DatabaseController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/App/Controller/DatabaseController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
-              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+            <state relative-caret-position="1082">
+              <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
               <folding>
                 <element signature="e#119#153#0#PHP" expanded="true" />
-                <marker date="1459791382911" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
-                <marker date="1459791382911" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
-                <marker date="1459791382911" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
-                <marker date="1459791382911" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
-                <marker date="1459791382911" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
-                <marker date="1459791382911" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
-                <marker date="1459791382911" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
-                <marker date="1459791382911" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
-                <marker date="1459791382911" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
-                <marker date="1459791382911" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
-                <marker date="1459791382911" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
-                <marker date="1459791382911" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
+                <marker date="1459800207598" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
+                <marker date="1459800207598" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
+                <marker date="1459800207598" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
+                <marker date="1459800207598" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
+                <marker date="1459800207598" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
+                <marker date="1459800207598" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
+                <marker date="1459800207598" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
+                <marker date="1459800207598" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
+                <marker date="1459800207598" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
+                <marker date="1459800207598" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
+                <marker date="1459800207598" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
+                <marker date="1459800207598" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -321,12 +321,12 @@
       <workItem from="1459713994642" duration="148000" />
       <workItem from="1459715282044" duration="8457000" />
       <workItem from="1459764449912" duration="1678000" />
-      <workItem from="1459771252450" duration="2716000" />
+      <workItem from="1459771252450" duration="3637000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44178000" />
+    <option name="totallyTimeSpent" value="45099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -422,18 +422,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#119#153#0#PHP" expanded="true" />
-            <marker date="1459791382911" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
-            <marker date="1459791382911" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
-            <marker date="1459791382911" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
+            <marker date="1459800207598" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
+            <marker date="1459800207598" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -506,18 +506,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#119#153#0#PHP" expanded="true" />
-            <marker date="1459791382911" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
-            <marker date="1459791382911" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
-            <marker date="1459791382911" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
+            <marker date="1459800207598" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
+            <marker date="1459800207598" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -589,18 +589,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#119#153#0#PHP" expanded="true" />
-            <marker date="1459791382911" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
-            <marker date="1459791382911" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
-            <marker date="1459791382911" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
+            <marker date="1459800207598" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
+            <marker date="1459800207598" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -747,22 +747,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App/Controller/DatabaseController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+        <state relative-caret-position="1082">
+          <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
           <folding>
             <element signature="e#119#153#0#PHP" expanded="true" />
-            <marker date="1459791382911" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
-            <marker date="1459791382911" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
-            <marker date="1459791382911" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
-            <marker date="1459791382911" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
-            <marker date="1459791382911" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="522:594" placeholder="SELECT id FR... users" />
+            <marker date="1459800207598" expanded="true" signature="1181:1254" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1181:1534" placeholder="UPDATE users... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1898" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1899" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1905" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1914" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="1850:1924" placeholder="INSERT INTO images... " />
+            <marker date="1459800207598" expanded="true" signature="2507:2527" placeholder="SELECT * FRO... images" />
+            <marker date="1459800207598" expanded="true" signature="2994:3021" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3025" placeholder="DELETE FROM " />
+            <marker date="1459800207598" expanded="true" signature="2994:3027" placeholder="DELETE FROM " />
           </folding>
         </state>
       </provider>
