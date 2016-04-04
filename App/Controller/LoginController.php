@@ -18,7 +18,7 @@ class LoginController{
 		try { $connection = new PDO('mysql:host='.$dbhost.';dbname=' . $dbName, $dbuser, $dbpw); } 
 		catch ( PDOException $e) {die(); }
 	
-		$query = $connection->prepare('SELECT id FROM users WHERE username = :username AND password = :password ;');
+		$query = $connection->prepare('SELECT id FROM users WHERE username = :username AND password = :password');
 		$query->bindParam(':username', $data["username"] , PDO::PARAM_STR);
 		$query->bindParam(':password', $data["password"] , PDO::PARAM_STR);
 		$query->execute();
