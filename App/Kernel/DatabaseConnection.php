@@ -15,9 +15,13 @@ class DatabaseConnection
     private $dbHost, $dbUsername, $dbPassword, $dbName, $conn;
 
     public function __construct(){
+        //Type in hostname
         $this->dbHost = "localhost";
+        //Type in username for database access
         $this->dbUsername = "root";
+        //Type in password for database access
         $this->dbPassword = "pw";
+        //Type in database name
         $this->dbName = "imagedb";
     }
 

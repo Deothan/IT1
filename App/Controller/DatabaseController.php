@@ -41,7 +41,7 @@ class DatabaseController
     public function EditUser(){
         //Prepare statement with htmlentities
 		$name = htmlentities($_POST['name']);
-		
+
         $stmt = $this->conn->prepare('UPDATE users SET username = :username, password = :password WHERE id= :id');
         $stmt->bindParam(':username', $name, PDO::PARAM_STR);
         $stmt->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
@@ -54,21 +54,25 @@ class DatabaseController
         $fileext = "jpg";
         //Upload file function
         if(isset($_FILES['fileupload'])){
-            //Temp file to move
-            $file_tmp = $_FILES['fileupload']['tmp_name'];
-			//htmlentities
-			$imagename = htmlentities($_POST['imagename']);
+            if($_FILES['fileupload']['size'] > 2000000){
+                echo "File to large";
+            } else{
+                //Temp file to move
+                $file_tmp = $_FILES['fileupload']['tmp_name'];
+                //htmlentities
+                $imagename = htmlentities($_POST['imagename']);
 
-            //Prepare statement
-            $stmt = $this->conn->prepare('INSERT INTO images (name, user_id, type) VALUES (:name, :userid, :fileext)');
-            $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
-            $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
-            $stmt->bindParam('fileext', $fileext, PDO::PARAM_STR);
-            $stmt->execute();
+                //Prepare statement
+                $stmt = $this->conn->prepare('INSERT INTO images (name, user_id, type) VALUES (:name, :userid, :fileext)');
+                $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
+                $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
+                $stmt->bindParam('fileext', $fileext, PDO::PARAM_STR);
+                $stmt->execute();
 
-            //Get id that was just inserted, make it the name, call it a day
-            $filename = $this->conn->lastInsertId();
-            move_uploaded_file($file_tmp, "public/images/" .$filename .".jpg");
+                //Get id that was just inserted, make it the name, call it a day
+                $filename = $this->conn->lastInsertId();
+                move_uploaded_file($file_tmp, "public/images/" .$filename .".jpg");
+            }
         }
 
     }
