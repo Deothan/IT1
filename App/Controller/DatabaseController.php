@@ -19,6 +19,25 @@ class DatabaseController
         $this->conn = $dbConnection->CreateConnection();
     }
 
+    public function Login(){
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        $query = $this->conn->prepare('SELECT id FROM users WHERE username = :username AND password = :password');
+        $query->bindParam(':username', $data["username"] , PDO::PARAM_STR);
+        $query->bindParam(':password', $data["password"] , PDO::PARAM_STR);
+        $query->execute();
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        if(!empty($row)){
+            $_SESSION["loggedIn"] = true;
+            $_SESSION["userid"] = $row['id'];
+            echo json_encode(array('value' => true));
+        }
+        else{
+            echo json_encode(array('value' => false));
+        }
+    }
+
     public function EditUser(){
         $id = $_POST['id'];
         $name = $_POST['name'];
