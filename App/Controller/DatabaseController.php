@@ -23,11 +23,11 @@ class DatabaseController
         $input = file_get_contents('php://input');
         $data = json_decode($input, true);
 
-        $query = $this->conn->prepare('SELECT id FROM users WHERE username = :username AND password = :password');
-        $query->bindParam(':username', $data["username"] , PDO::PARAM_STR);
-        $query->bindParam(':password', $data["password"] , PDO::PARAM_STR);
-        $query->execute();
-        $row = $query->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->conn->prepare('SELECT id FROM users WHERE username = :username AND password = :password');
+        $stmt->bindParam(':username', $data["username"], PDO::PARAM_STR);
+        $stmt->bindParam(':password', $data["password"], PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($row)){
             $_SESSION["loggedIn"] = true;
             $_SESSION["userid"] = $row['id'];
@@ -39,27 +39,30 @@ class DatabaseController
     }
 
     public function EditUser(){
-        $id = $_POST['id'];
-        $name = $_POST['name'];
-        $password = $_POST['password'];
-
-        $userSql = "UPDATE users SET username='$name', password='$password' WHERE id='$id'";
-        if($this->conn->query($userSql) == true){} else{
-            echo "Error updating record";
-        }
+        //Prepare statement
+        $stmt = $this->conn->prepare('UPDATE users SET username = :username, password = :password WHERE id= :id');
+        $stmt->bindParam(':username', $_POST['name'], PDO::PARAM_STR);
+        $stmt->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
+        $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_STR);
+        $stmt->execute();
     }
 
     public function UploadImage(){
-        $name = $_POST['imagename'];
-        $userid = $_POST['userid'];
-
+        //Fixed fileextension for now.. Only temp
+        $fileext = "jpg";
+        //Upload file function
         if(isset($_FILES['fileupload'])){
+            //Temp file to move
             $file_tmp = $_FILES['fileupload']['tmp_name'];
 
-            $imageSql = "INSERT INTO images (name, user_id, type) VALUES ('$name', '$userid', 'jpg')";
-            if ($this->conn->query($imageSql) == true) {} else {
-                echo "Error uploading image";
-            }
+            //Prepare statement
+            $stmt = $this->conn->prepare('INSERT INTO images (name, user_id, type) VALUES (:name, :userid, :fileext)');
+            $stmt->bindParam(':name', $_POST['imagename'], PDO::PARAM_STR);
+            $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
+            $stmt->bindParam('fileext', $fileext, PDO::PARAM_STR);
+            $stmt->execute();
+
+            //Get id that was just inserted, make it the name, call it a day
             $filename = $this->conn->lastInsertId();
             move_uploaded_file($file_tmp, "public/images/" .$filename .".jpg");
         }
@@ -67,16 +70,15 @@ class DatabaseController
     }
 
     public function GetAllImages(){
-        //Get all records from database
-        $imageSql = "SELECT * FROM images";
-        $result = $this->conn->query($imageSql);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
+        //Prepare statement
+        $stmt = $this->conn->prepare('SELECT * FROM images');
+        $stmt->execute();
 
         //Create array to contain all database records
         $dataArray = array();
 
         //Iterate through database content and put into dataarray
-        while($row = $result->fetch()){
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $dataArray[] = $row;
         }
 
@@ -85,12 +87,11 @@ class DatabaseController
     }
 
     public function DeleteImage(){
-        //POST variables
-        $id = $_POST['imageid'];
-        //Delete record in database
-        $imageSql = "DELETE FROM images WHERE id='$id'";
-        if($this->conn->query($imageSql) == true){} else{
-            echo "Error updating record";
-        }
+        //Prepare statement
+        $stmt = $this->conn->prepare('DELETE FROM images WHERE id = :id');
+        $stmt->bindParam(':id', $_POST['imageid'], PDO::PARAM_STR);
+        $stmt->execute();
+        
+        //TODO unlink of image file.. Image file still exists
     }
 }
