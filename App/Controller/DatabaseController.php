@@ -39,7 +39,7 @@ class DatabaseController
     }
 
     public function EditUser(){
-        //Prepare statement
+        //Prepare statement with htmlentities
 		$name = htmlentities($_POST['name']);
 		
         $stmt = $this->conn->prepare('UPDATE users SET username = :username, password = :password WHERE id= :id');
@@ -56,6 +56,7 @@ class DatabaseController
         if(isset($_FILES['fileupload'])){
             //Temp file to move
             $file_tmp = $_FILES['fileupload']['tmp_name'];
+			//htmlentities
 			$imagename = htmlentities($_POST['imagename']);
 
             //Prepare statement
