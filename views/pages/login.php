@@ -25,10 +25,10 @@
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					if(JSON.parse(request.responseText).value){
-						location.replace("/login");
+						location.replace("/images");
 					}
 					else{
-							document.getElementById("loginText").innerHTML = "Incorrect password";
+						document.getElementById("loginText").innerHTML = "Incorrect password";
 					}
 				}
 			}

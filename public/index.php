@@ -41,8 +41,8 @@ $container = new Container();
 ************/
 
 $router = new Router();
-$router->addRoute('GET', '/', ['App\\Controller\\LoginController', 'Login']);
-$router->addRoute('GET', '/login', ['App\\Controller\\LoginController', 'Login']);
+$router->addRoute('GET', '/', ['App\\Controller\\LoginController', 'ShowLogin']);
+$router->addRoute('GET', '/login', ['App\\Controller\\LoginController', 'ShowLogin']);
 $router->addRoute('GET', '/images', ['App\\Controller\\ImageController', 'ShowImages']);
 $router->addRoute('GET', '/getimages', ['App\\Controller\\ImageController', 'GetImages']);
 
@@ -53,7 +53,7 @@ $router->addRoute('POST', '/showUpload', ['App\\Controller\\ImageController', 'S
 $router->addRoute('POST', '/upload', ['App\\Controller\\ImageController', 'UploadImage']);
 $router->addRoute('POST', '/users', ['App\\Controller\\UserController', 'ShowUsers']);
 $router->addRoute('POST', '/addUser', ['App\\Controller\\UserController', 'AddUser']);
-$router->addRoute('POST', '/validate', ['App\\Controller\\ValidateLogin', 'ValidateLogin']);
+$router->addRoute('POST', '/validate', ['App\\Controller\\LoginController', 'Login']);
 $router->addRoute('POST', '/openEditUser', ['App\\Controller\\UserController', 'OpenEditUser']);
 $router->addRoute('POST', '/editUser', ['App\\Controller\\UserController', 'EditUser']);
 $router->addRoute('POST', '/deleteimage', ['App\\Controller\\ImageController', 'DeleteImage']);
