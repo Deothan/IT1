@@ -40,8 +40,10 @@ class DatabaseController
 
     public function EditUser(){
         //Prepare statement
+		$name = htmlentities($_POST['name']);
+		
         $stmt = $this->conn->prepare('UPDATE users SET username = :username, password = :password WHERE id= :id');
-        $stmt->bindParam(':username', $_POST['name'], PDO::PARAM_STR);
+        $stmt->bindParam(':username', $name, PDO::PARAM_STR);
         $stmt->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
         $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_STR);
         $stmt->execute();
@@ -54,10 +56,11 @@ class DatabaseController
         if(isset($_FILES['fileupload'])){
             //Temp file to move
             $file_tmp = $_FILES['fileupload']['tmp_name'];
+			$imagename = htmlentities($_POST['imagename']);
 
             //Prepare statement
             $stmt = $this->conn->prepare('INSERT INTO images (name, user_id, type) VALUES (:name, :userid, :fileext)');
-            $stmt->bindParam(':name', $_POST['imagename'], PDO::PARAM_STR);
+            $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
             $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
             $stmt->bindParam('fileext', $fileext, PDO::PARAM_STR);
             $stmt->execute();
