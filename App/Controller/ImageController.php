@@ -22,7 +22,7 @@ class ImageController{
 	}
 	
 	public function GetImages(){
-		return $result = $this->dbcontroller->GetAllImages();
+		return $this->dbcontroller->GetAllImages();
 	}
 
 	public function DeleteImage(){
