@@ -16,21 +16,23 @@
 		function Validate(){
 			var name = document.getElementById("loginName").value;
 			var pw = document.getElementById("loginPassword").value;
-			
+
 			var request = new XMLHttpRequest();
 			request.open("POST", "/validate", true);
 			request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			request.send(JSON.stringify({"username":name, "password":pw}));	
+			request.send(JSON.stringify({"username":name, "password":pw}));
 			
 			request.onreadystatechange = function(){
-				if(request.readyState == 4 && request.status == 200){
-					if(JSON.parse(request.responseText).value){
-						location.replace("/images");
+					if(request.readyState == 4 && request.status == 200){
+						if(JSON.parse(request.responseText).value){
+							location.replace("/images");
+							exit();
+
+						}
+						else{
+							document.getElementById("loginText").innerHTML = "Incorrect password";
+						}
 					}
-					else{
-						document.getElementById("loginText").innerHTML = "Incorrect password";
-					}
-				}
 			}
 		}
 	</script>

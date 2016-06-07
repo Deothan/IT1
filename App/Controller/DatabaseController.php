@@ -23,15 +23,19 @@ class DatabaseController
         $input = file_get_contents('php://input');
         $data = json_decode($input, true);
 
-        $stmt = $this->conn->prepare('SELECT id FROM users WHERE username = :username AND password = :password');
+        $stmt = $this->conn->prepare('SELECT id, password FROM users WHERE username = :username');
         $stmt->bindParam(':username', $data["username"], PDO::PARAM_STR);
-        $stmt->bindParam(':password', $data["password"], PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($row)){
-            $_SESSION["loggedIn"] = true;
-            $_SESSION["userid"] = $row['id'];
-            echo json_encode(array('value' => true));
+            if(password_verify($data["password"], $row['password'])){
+                $_SESSION["loggedIn"] = true;
+                $_SESSION["userid"] = $row['id'];
+                echo json_encode(array('value' => true));
+            }
+            else{
+                echo json_encode(array('value' => false));
+            }
         }
         else{
             echo json_encode(array('value' => false));
@@ -59,8 +63,7 @@ class DatabaseController
             } else{
                 //Temp file to move
                 $file_tmp = $_FILES['fileupload']['tmp_name'];
-                //htmlentities
-                $imagename = htmlentities($_POST['imagename']);
+                $imagename = $_POST['imagename'];
 
                 //Prepare statement
                 $stmt = $this->conn->prepare('INSERT INTO images (name, user_id, type) VALUES (:name, :userid, :fileext)');

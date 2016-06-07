@@ -12,7 +12,7 @@
 		$json = json_decode($content, true);
 		foreach($json as $value){?>
 			<?php if($value['user_id'] == $_SESSION['userid']){ ?>
-			<h2><?php echo $value['name']; ?></h2> 
+			<h2><?php echo htmlentities($value['name']); ?></h2>
 			<form id="delete_image" method="post" action="/deleteimage">
 				<button>Delete image</button>
 				<input type="hidden" name="imageid" value="<?php echo $value['id']; ?>">

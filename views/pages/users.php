@@ -15,7 +15,7 @@
 		$query->bindParam(':name', $name);
 		$query->bindParam(':password', $password);
 		$name = $_POST["newName"];
-		$password = $_POST["newPw"];
+		$password = password_hash($_POST["newPw"], PASSWORD_DEFAULT);
 		$query->execute();
 	}
 ?>
