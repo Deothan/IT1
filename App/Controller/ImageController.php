@@ -1,11 +1,13 @@
 <?php
 namespace App\Controller;
 
+use App\Model\Image;
+
 class ImageController{
-	private $dbcontroller;
+	private $imageModel;
 
 	public function __construct(){
-		$this->dbcontroller = new DatabaseController();
+		$this->imageModel = new Image();
 	}
 	
 	public function ShowImages(){
@@ -13,20 +15,24 @@ class ImageController{
 	}
 	
 	public function UploadImage(){
-		$this->dbcontroller->UploadImage();
+		$this->imageModel->CreateImage();
 		return $this->ShowImages();
 	}
 	
 	public function ShowUpload(){
 		require VIEW_DIR . '/pages/upload.php';
 	}
+
+	public function GetImage(){
+		return $this->imageModel->GetImage(1);
+	}
 	
 	public function GetImages(){
-		return $result = $this->dbcontroller->GetAllImages();
+		return $this->imageModel->GetAllImages();
 	}
 
 	public function DeleteImage(){
-		$this->dbcontroller->DeleteImage();
+		$this->imageModel->DeleteImage();
 		return $this->ShowImages();
 	}
 }?>

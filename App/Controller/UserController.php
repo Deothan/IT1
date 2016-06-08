@@ -1,11 +1,25 @@
 <?php
 namespace App\Controller;
 
+use App\Model\User;
+
 class UserController{
-	private $dbcontroller;
+	private $user;
 
 	public function __construct(){
-		$this->dbcontroller = new DatabaseController();
+		$this->user = new User();
+	}
+
+	public function Login(){
+		$this->user->Login();
+	}
+
+	public function Logout(){
+		$this->user->Logout();
+	}
+
+	public function ShowLogin(){
+		require VIEW_DIR . '/pages/login.php';
 	}
 	
 	public function ShowUsers(){
@@ -21,7 +35,7 @@ class UserController{
 	}
 
 	public function EditUser(){
-		$this->dbcontroller->EditUser();
+		$this->user->EditUser();
 		return $this->ShowUsers();
 	}
 }?>

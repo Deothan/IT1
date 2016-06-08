@@ -2,66 +2,52 @@
 /**
  * Created by PhpStorm.
  * User: Von Frank
- * Date: 03-04-2016
- * Time: 01:17
+ * Date: 07-06-2016
+ * Time: 20:35
  */
 
-namespace App\Controller;
+namespace App\Model;
+
 use App\Kernel\DatabaseConnection;
 use PDO;
 
-class DatabaseController
+class Image
 {
     private $conn;
 
-    public function __construct(){
+    public function __construct()
+    {
         $dbConnection = new DatabaseConnection();
         $this->conn = $dbConnection->CreateConnection();
     }
 
-    public function Login(){
-        $input = file_get_contents('php://input');
-        $data = json_decode($input, true);
-
-        $stmt = $this->conn->prepare('SELECT id, password FROM users WHERE username = :username');
-        $stmt->bindParam(':username', $data["username"], PDO::PARAM_STR);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if(!empty($row)){
-            if(password_verify($data["password"], $row['password'])){
-                $_SESSION["loggedIn"] = true;
-                $_SESSION["userid"] = $row['id'];
-                echo json_encode(array('value' => true));
-            }
-            else{
-                echo json_encode(array('value' => false));
-            }
-        }
-        else{
-            echo json_encode(array('value' => false));
-        }
-    }
-
-    public function EditUser(){
-        //Prepare statement with htmlentities
-		$name = htmlentities($_POST['name']);
-
-        $stmt = $this->conn->prepare('UPDATE users SET username = :username, password = :password WHERE id= :id');
-        $stmt->bindParam(':username', $name, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
-        $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_STR);
-        $stmt->execute();
-    }
-
-    public function UploadImage(){
-        //Fixed fileextension for now.. Only temp
+    public function CreateImage(){
         $fileext = "jpg";
+
+        $file_temp = $_FILES['fileupload']['tmp_name'];
+        $handle = fopen($file_temp, "rb");
+        $contents = stream_get_contents($handle);
+        fclose($handle);
+
+        $imagename = $_POST['imagename'];
+
+        //Prepare statement
+        $stmt = $this->conn->prepare('INSERT INTO images (name, file, user_id, type) VALUES (:name, :file, :userid, :fileext)');
+        $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
+        $stmt->bindParam(':file', $contents, PDO::PARAM_STR);
+        $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
+        $stmt->bindParam(':fileext', $fileext, PDO::PARAM_STR);
+        $stmt->execute();
+
+        //Fixed fileextension for now.. Only temp
+        /*$fileext = "jpg";
         //Upload file function
         if(isset($_FILES['fileupload'])){
             if($_FILES['fileupload']['size'] > 2000000){
                 echo "File to large";
             } else{
                 //Temp file to move
+
                 $file_tmp = $_FILES['fileupload']['tmp_name'];
                 $imagename = $_POST['imagename'];
 
@@ -76,8 +62,7 @@ class DatabaseController
                 $filename = $this->conn->lastInsertId();
                 move_uploaded_file($file_tmp, "public/images/" .$filename .".jpg");
             }
-        }
-
+        }*/
     }
 
     public function GetAllImages(){
@@ -87,13 +72,15 @@ class DatabaseController
 
         //Create array to contain all database records
         $dataArray = array();
+        $position = 0;
 
         //Iterate through database content and put into dataarray
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $dataArray[] = $row;
+            $dataArray = $row;
+            //$dataArray[$position] = array('id' => $row['id'], 'name' => $row['name'], 'user_id' => $row['user_id'], 'type' => $row['type']);
+            //$position = $position + 1;
         }
 
-        //Encode into json and return
         return json_encode($dataArray);
     }
 
