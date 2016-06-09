@@ -22,25 +22,25 @@ class Image
     }
 
     public function CreateImage(){
-        $fileext = "jpg";
-
-        $file_temp = $_FILES['fileupload']['tmp_name'];
-        $handle = fopen($file_temp, "rb");
-        $contents = stream_get_contents($handle);
-        fclose($handle);
-
-        $imagename = $_POST['imagename'];
-
-        //Prepare statement
-        $stmt = $this->conn->prepare('INSERT INTO images (name, file, user_id, type) VALUES (:name, :file, :userid, :fileext)');
-        $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
-        $stmt->bindParam(':file', $contents, PDO::PARAM_STR);
-        $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
-        $stmt->bindParam(':fileext', $fileext, PDO::PARAM_STR);
-        $stmt->execute();
+//        $fileext = "jpg";
+//
+//        $file_temp = $_FILES['fileupload']['tmp_name'];
+//        $handle = fopen($file_temp, "rb");
+//        $contents = stream_get_contents($handle);
+//        fclose($handle);
+//
+//        $imagename = $_POST['imagename'];
+//
+//        //Prepare statement
+//        $stmt = $this->conn->prepare('INSERT INTO images (name, file, user_id, type) VALUES (:name, :file, :userid, :fileext)');
+//        $stmt->bindParam(':name', $imagename, PDO::PARAM_STR);
+//        $stmt->bindParam(':file', $contents, PDO::PARAM_STR);
+//        $stmt->bindParam(':userid', $_POST['userid'], PDO::PARAM_STR);
+//        $stmt->bindParam(':fileext', $fileext, PDO::PARAM_STR);
+//        $stmt->execute();
 
         //Fixed fileextension for now.. Only temp
-        /*$fileext = "jpg";
+        $fileext = "jpg";
         //Upload file function
         if(isset($_FILES['fileupload'])){
             if($_FILES['fileupload']['size'] > 2000000){
@@ -62,7 +62,7 @@ class Image
                 $filename = $this->conn->lastInsertId();
                 move_uploaded_file($file_tmp, "public/images/" .$filename .".jpg");
             }
-        }*/
+        }
     }
 
     public function GetAllImages(){

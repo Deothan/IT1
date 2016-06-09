@@ -28,11 +28,7 @@ class ImageController{
 	}
 	
 	public function GetImages(){
-<<<<<<< HEAD
 		return $this->imageModel->GetAllImages();
-=======
-		return $this->dbcontroller->GetAllImages();
->>>>>>> ac878f488acd43dfbbf2d14698a6887fb721916d
 	}
 
 	public function DeleteImage(){
